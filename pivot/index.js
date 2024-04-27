@@ -1,6 +1,6 @@
 function ordenarDecrescenteRecursivo(lista) {
   if (lista.length <= 1) {
-      return lista;
+    return lista;
   }
 
   const pivot = lista[0];
@@ -8,14 +8,17 @@ function ordenarDecrescenteRecursivo(lista) {
   const maiores = [];
 
   for (let i = 1; i < lista.length; i++) {
-      if (lista[i] > pivot) {
-          maiores.push(lista[i]);
-      } else {
-          menores.push(lista[i]);
-      }
+    if (lista[i] > pivot) {
+      maiores.push(lista[i]);
+    } else {
+      menores.push(lista[i]);
+    }
   }
 
-  return ordenarDecrescenteRecursivo(maiores).concat(pivot, ordenarDecrescenteRecursivo(menores));
+  return ordenarDecrescenteRecursivo(maiores).concat(
+    pivot,
+    ordenarDecrescenteRecursivo(menores)
+  );
 }
 
 // Lista original
